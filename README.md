@@ -11,3 +11,6 @@ python .\manage.py runserver
 
 Create an app
 python manage.py startapp "AppName"
+
+DB Migrations
+python manage.py makemigrations
