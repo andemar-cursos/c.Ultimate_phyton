@@ -14,3 +14,6 @@ python manage.py startapp "AppName"
 
 DB Migrations
 python manage.py makemigrations
+
+Create SuperUser to use admin panel
+python manage.py createsuperuser
