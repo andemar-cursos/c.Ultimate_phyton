@@ -1,4 +1,5 @@
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
 
 from productos.models import Producto
 
@@ -6,5 +7,10 @@ from productos.models import Producto
 # Create your views here.
 def index(request):
     productos = Producto.objects.all().values()
-    return JsonResponse(list(productos), safe=False)
+
+    return render(
+        request,
+        'index.html',
+        context={'productos': productos}
+    )
 

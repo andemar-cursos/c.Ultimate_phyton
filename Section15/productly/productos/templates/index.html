@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Stock</th>
+      <th>Puntaje</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for producto in productos %}
+    <tr>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.stock}}</td>
+      <td>{{producto.puntaje}}</td>
+      <td>{{producto.categoria}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+
+</body>
+</html>
