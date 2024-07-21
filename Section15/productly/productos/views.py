@@ -33,7 +33,7 @@ def formulario(request):
         form = ProductoForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect ('/productos')
+            return HttpResponseRedirect('/productos')
     else:
         form = ProductoForm()
 
