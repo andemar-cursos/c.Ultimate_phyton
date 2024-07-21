@@ -14,3 +14,7 @@ def index(request):
         context={'productos': productos}
     )
 
+
+def detalle(request, producto_id):
+    return HttpResponse(producto_id)
+
