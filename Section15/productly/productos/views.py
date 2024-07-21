@@ -1,7 +1,8 @@
 from django.http import HttpResponse, JsonResponse, Http404
 from django.shortcuts import render, get_object_or_404
 
-from productos.models import Producto
+from .forms import ProductoForm
+from .models import Producto
 
 
 # Create your views here.
@@ -24,3 +25,14 @@ def detalle(request, producto_id):
 # try:
 # except Producto.DoesNotExist:
 # raise Http404()
+
+
+def formulario(request):
+    form = ProductoForm()
+
+    return render(
+        request,
+        'producto_form.html',
+        {'form': form}
+    )
+
