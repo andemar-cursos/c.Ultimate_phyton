@@ -1,0 +1,43 @@
+// Load data, train and test
+import pandas as p
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+data_juegos = p.read_csv("juegos-ml.csv")
+X = data_juegos.drop(columns=["juegos"])
+Y = data_juegos["juegos"]
+X_train, X_test, Y_train, Y_test = train_test_split(X.values, Y, test_size=0.2)
+
+
+modelo = DecisionTreeClassifier()
+modelo.fit(X_train, Y_train)
+predicciones = modelo.predict(X_test)
+
+puntaje = accuracy_score(Y_test, predicciones)
+puntaje
+
+
+
+//Save the model
+import pandas as p
+from sklearn.tree import DecisionTreeClassifier
+import joblib
+
+data_juegos = p.read_csv("juegos-ml.csv")
+X = data_juegos.drop(columns=["juegos"])
+Y = data_juegos["juegos"]
+
+modelo = DecisionTreeClassifier()
+modelo.fit(X_train, Y_train)
+
+joblib.dump(modelo, "recomendador-juegos.joblib")
+
+
+
+//Load the model and use it
+import joblib
+
+joblib.dump(modelo, "recomendador-juegos.joblib")
+predicciones = modelo.predict([[14, 0]])
+predicciones
